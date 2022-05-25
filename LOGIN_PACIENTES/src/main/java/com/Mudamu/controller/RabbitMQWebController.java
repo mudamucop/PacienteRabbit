@@ -17,7 +17,7 @@ public class RabbitMQWebController {
 	RabbitMQSender rabbitMQSender;
 
 	@GetMapping(value = "/producer")
-	public String producer(@RequestParam("empName") String empName, @RequestParam("empId") String empId) {
+	public String producer(@RequestParam("medicoID") String empName, @RequestParam("empId") String empId) {
 
 		Employee emp = new Employee();
 		emp.setEmpId(empId);

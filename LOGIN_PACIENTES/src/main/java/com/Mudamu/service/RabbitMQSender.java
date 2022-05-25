@@ -13,10 +13,10 @@ public class RabbitMQSender {
 	@Autowired
 	private AmqpTemplate amqpTemplate;
 
-	@Value("${loginPacientes.rabbitmq.exchange}")
+	@Value("${mudamu.medico.rabbitmq.exchange}")
 	private String exchange;
 
-	@Value("${loginPacientes.rabbitmq.routingkey}")
+	@Value("${mudamu.medico.rabbitmq.routingkey}")
 	private String routingkey;
 	String kafkaTopic = "java_in_use_topic";
 

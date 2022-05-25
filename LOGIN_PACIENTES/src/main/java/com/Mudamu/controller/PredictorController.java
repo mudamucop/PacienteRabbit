@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.Mudamu.service.Predictor.PredictorService;
 
+import org.codehaus.jettison.json.JSONArray;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
+
 //import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,8 +60,24 @@ public class PredictorController {
 			i++;
 		}
 
-		List<String> enfermedadesPrediccion = predictorService.getDisease(mapa);
+		predictorService.sendNode();
+
+		//List<String> enfermedadesPrediccion = predictorService.getDisease(mapa);
 
 		return "redirect:/prediction";
+	}
+
+	@GetMapping("/node")
+	public JSONObject sintomas() throws JSONException {
+		JSONObject object = null;
+
+		JSONArray array = new JSONArray(
+				"[{\"No\":\"17\",\"Name\":\"Andrew\"},{\"No\":\"18\",\"Name\":\"Peter\"}, {\"No\":\"19\",\"Name\":\"Tom\"}]");
+		
+		for (int i = 0; i < array.length(); i++) {
+			object = array.getJSONObject(i);
+		}
+
+		return object;
 	}
 }
